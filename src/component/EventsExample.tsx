@@ -4,6 +4,7 @@ const EventsExample = () => {
     const [value, setValue] = useState<string>('');
     const [isDrag, setIsDrag] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
+
     const changeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
 
@@ -35,7 +36,8 @@ const EventsExample = () => {
 
     return (
         <div>
-            <input value={value} onChange={changeHandler} type="text"/>
+            <input value={value} onChange={changeHandler} type="text" placeholder="Управляемый"/>
+            <input ref={inputRef} type="text" placeholder="Неуправляемый"/>
             <button onClick={clickHandler} >dvx</button>
             <div onDrag={dragHandler} draggable style={{width: 200, height: 200, background: 'red'}}></div>
             <div
